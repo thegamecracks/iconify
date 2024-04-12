@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iconify"
+dynamic = ["version"]
+dependencies = ["Pillow>=10.3.0"]
+
+[project.scripts]
+iconify = "iconify:main"
+
+[tool.setuptools_scm]
