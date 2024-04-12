@@ -47,7 +47,8 @@ def main():
     )
     parser.add_argument(
         "input_dir",
-        help="The directory to read images from",
+        help="The directory to read images from (default: .)",
+        nargs="?",
         type=Path,
     )
     parser.add_argument(
@@ -62,9 +63,11 @@ def main():
     size: tuple[int, int] = args.size
     force: bool = args.force
     method: int = args.method
-    input_dir: Path = args.input_dir
+    input_dir: Path | None = args.input_dir
     output_dir: Path | None = args.output_dir
 
+    if input_dir is None:
+        input_dir = Path()
     if output_dir is None:
         output_dir = input_dir / "icons"
 
