@@ -68,7 +68,7 @@ def main():
 
     if input_dir is None:
         input_dir = Path()
-    if output_dir is None:
+    if output_dir is None or output_dir.resolve() == input_dir.resolve():
         output_dir = input_dir / f"{size[0]}x{size[1]}"
 
     configure_logging(verbose)
