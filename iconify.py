@@ -53,7 +53,7 @@ def main():
     )
     parser.add_argument(
         "output_dir",
-        help="The directory to output icons to (default: {input-dir}/icons)",
+        help="The directory to output icons to (default: {input-dir}/{x-size}x{y-size})",
         nargs="?",
         type=Path,
     )
@@ -69,7 +69,7 @@ def main():
     if input_dir is None:
         input_dir = Path()
     if output_dir is None:
-        output_dir = input_dir / "icons"
+        output_dir = input_dir / f"{size[0]}x{size[1]}"
 
     configure_logging(verbose)
 
