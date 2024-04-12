@@ -70,13 +70,14 @@ def main():
 
     configure_logging(verbose)
 
-    generate_icons(
+    n_resized = generate_icons(
         input_dir,
         output_dir,
         size=size,
         ignore_existing=not force,
         resampler=method,
     )
+    print(n_resized, "icon(s) generated")
 
 
 def parse_size(s: str) -> tuple[int, int]:
@@ -124,8 +125,10 @@ def generate_icons(
     size: tuple[int, int],
     ignore_existing: bool,
     resampler: int,
-) -> None:
+) -> int:
     output_dir.mkdir(exist_ok=True, parents=True)
+
+    n_resized = 0
     for source_path in input_dir.iterdir():
         if not source_path.is_file():
             continue
@@ -146,6 +149,9 @@ def generate_icons(
 
         resized.save(output_path)
         log.info("Written icon for %s", source_path.name)
+        n_resized += 1
+
+    return n_resized
 
 
 if __name__ == "__main__":
