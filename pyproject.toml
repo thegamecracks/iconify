@@ -4,6 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "iconify"
+license = { text = "MIT" }
 dynamic = ["version"]
 dependencies = ["Pillow>=10.3.0"]
 
