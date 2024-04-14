@@ -2,6 +2,9 @@
 
 A Python script to batch generate icons from images in a directory.
 
+This project should not be confused with the [iconify](https://pypi.org/project/iconify/)
+package on PyPI, a library for using SVG images in Python Qt applications.
+
 ## Usage
 
 With Python 3.11+ and Git installed, you can run the following:
