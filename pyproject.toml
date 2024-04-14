@@ -4,11 +4,19 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "iconify"
+description = "Batch generate image thumbnails"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "thegamecracks" }]
 license = { text = "MIT" }
 dynamic = ["version"]
 dependencies = ["Pillow>=10.3.0"]
 
 [project.scripts]
 iconify = "iconify:main"
+
+[project.urls]
+"Homepage" = "https://github.com/thegamecracks/iconify"
+"Issues" = "https://github.com/thegamecracks/iconify/issues"
 
 [tool.setuptools_scm]
