@@ -129,7 +129,7 @@ def generate_icons(
     ignore_existing: bool,
     resampler: int,
 ) -> int:
-    output_dir.mkdir(exist_ok=True, parents=True)
+    created_output_dir = False
 
     n_resized = 0
     for source_path in input_dir.iterdir():
@@ -149,6 +149,10 @@ def generate_icons(
 
         with source_image:
             resized = ImageOps.fit(source_image, size, method=resampler)
+
+        if not created_output_dir:
+            output_dir.mkdir(exist_ok=True, parents=True)
+            created_output_dir = True
 
         resized.save(output_path)
         log.info("Written icon for %s", source_path.name)
