@@ -29,7 +29,7 @@ def main():
         "-s",
         "--size",
         default="64x64",
-        help="The icon size to output (default: 64x64)",
+        help="The icon size to output (default: %(default)s)",
         type=parse_size,
     )
     parser.add_argument(
@@ -42,7 +42,7 @@ def main():
         "-m",
         "--method",
         default="lanczos",
-        help="Resampling algorithm to use (default: lanczos)",
+        help="Resampling algorithm to use (default: %(default)s)",
         type=parse_resampler,
     )
     parser.add_argument(
